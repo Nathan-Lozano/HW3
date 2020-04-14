@@ -1,0 +1,52 @@
+#include <iostream>
+#include <sstream>
+using namespace std;
+void showMenu();
+void add();
+void subtract();
+void getRational(int *num, int *den);
+char userchoice, cont = 'Y';
+int *num, *den;
+
+
+int main(){
+    showMenu();
+    cin >> userchoice;
+    if(userchoice == 'A' || userchoice == 'a')
+        add();
+    else if(userchoice == 'S' || userchoice == 's')
+        subtract();
+    else
+        exit;
+    
+}
+
+void showMenu(){
+    cout << "Ration numbers calculator" << endl;
+    cout << "(A)ddition" << endl << "(S)ubtraction" << endl << "(Q)uit" << endl;
+    cout << "Enter your option: ";
+}
+
+void getRational(int *num, int *den){
+
+}
+
+void add(){
+    //while(cont == 'Y' || cont == 'y'){
+    int num1, num2, den1, den2, inum,iden;
+    system("CLS");
+    cout << "Addition of rational numbers" << endl;
+    getRational(&num1, &den1);
+    getRational(&num2, &den2);
+    //cout << "Do you want to do more additions?(Y/N) "
+    //cin >> cont;
+    //}
+}
+
+void subtract(){
+    //while(cont == 'Y' || cont == 'y'){
+    cout << "";
+    //cout << "Do you want to do more subtractions?(Y/N) ";
+    //cin >> cont;
+    //}
+}
