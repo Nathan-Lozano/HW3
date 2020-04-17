@@ -36,9 +36,6 @@ void showMenu(){
     cout << "Enter your option: ";
 }
 
-void getRational(int *num, int *den){
-
-}
 
 void add(){
     //while(cont == 'Y' || cont == 'y'){
