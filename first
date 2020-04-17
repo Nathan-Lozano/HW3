@@ -4,7 +4,16 @@ using namespace std;
 void showMenu();
 void add();
 void subtract();
-void getRational(int *num, int *den);
+void getRational(int *num, int *den){
+ string numstr,denstr,str;
+    cout<<"please enter a fraction (n/d): ";getline(cin,str);
+    stringstream s_stream1(str);
+    getline(s_stream1,numstr,'/');
+    getline(s_stream1,denstr,'/');
+    *num=stoi(numstr);
+    *den = stoi (denstr);
+}
+
 char userchoice, cont = 'Y';
 int *num, *den;
 
