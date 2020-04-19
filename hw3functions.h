@@ -10,17 +10,6 @@ void showMenu(){
     cout << "Enter your option: ";
 }
 
-void DisplayRational(int *inum, int *iden){
-    if(*inum == *iden && choice == 'a')
-        cout << "1";
-    else if(*inum == *iden && choice == 's')
-        cout << "0";
-    else
-        if(*inum == 0)
-            cout << "0";
-        else
-            cout << *inum << "/" << *iden;
-}
 
 void getRational(int *num, int *den){
     string numstring, denstring, str;
@@ -47,6 +36,21 @@ void reduce(int *num, int *den){
     //divides gcf of num value and den values
     *num /= b;
     *den /= b;
+}
+
+void DisplayRational(int *inum, int *iden){
+    reduce(inum, iden);
+    if(*iden < 0)
+        *inum *= -1, *iden *= -1;
+    if(*inum == *iden && choice == 'a')
+        cout << "1";
+    else if(*inum == *iden && choice == 's')
+        cout << "0";
+    else
+        if(*inum == 0)
+            cout << "0";
+        else
+            cout << *inum << "/" << *iden;
 }
 
 void addRational(int num1, int den1, int num2, int den2, int *inum, int *iden){
