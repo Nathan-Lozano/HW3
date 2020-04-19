@@ -29,6 +29,10 @@ void getRational(int *num, int *den){
     if(*den == 0)
         system("EXIT");
 }
+void subrational(int *anum,int *aden,int num1,int den1,int num2,int den2){
+    *anum = (num1 *den2)-(num2 * den1);
+    *aden = (den1*den2);
+}
 
 void reduce(int *num, int *den){
     int x = *num % *den;
@@ -67,11 +71,23 @@ void add(){
 }
 
 void subtract(){
-    //while(cont == 'Y' || cont == 'y'){
-    cout << "";
-    //cout << "Do you want to do more subtractions?(Y/N) ";
-    //cin >> cont;
-    //}
+   system("cls");
+    int num,den;
+    int num1,den1,num2,den2,anum,aden;
+    cout<<"subtraction of rational numbers"<<endl;
+    while(true){
+        getRational(&num1,&den1);
+        getRational(&num2,&den2);
+        subrational(&anum, &aden,num1,den1,num2,den2);
+        reduce(&anum,&aden);
+       // displayRational(num,den);
+        char user = '\0';
+        cout<<"do you want to do more addition?(Y/N): ";
+        cin>>user;
+        cin.ignore();
+       // if(user ='N')
+        {
+            break;
 }
 
 
