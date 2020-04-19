@@ -2,11 +2,19 @@
 #include <sstream>
 #include <unistd.h>
 using namespace std;
+char cont = 'y';
 
 void showMenu(){
     cout << "Ration numbers calculator" << endl;
     cout << "(A)ddition" << endl << "(S)ubtraction" << endl << "(Q)uit" << endl;
     cout << "Enter your option: ";
+}
+
+void DisplayRational(int *inum, int *iden){
+    if(*inum == *iden)
+        cout << "1";
+    else
+        cout << *inum << "/" << *iden;
 }
 
 void getRational(int *num, int *den){
@@ -40,20 +48,21 @@ void addRational(int num1, int den1, int num2, int den2, int *inum, int *iden){
     reduce(&num2, &den2);
     *inum = (num1 * den2) + (num2 * den1); 
     *iden = den1 * den2;
-    cout << *inum << "/" << *iden;
+    DisplayRational(inum, iden);
+    //cout << *inum << "/" << *iden;
 }
 
 void add(){
-    //while(cont == 'Y' || cont == 'y'){
+    while(cont == 'Y' || cont == 'y'){
     int num1, num2, den1, den2, inum,iden;
     system("CLS");
     cout << "Addition of rational numbers" << endl;
     getRational(&num1, &den1);
     getRational(&num2, &den2);
     addRational(num1, den1, num2, den2, &inum, &iden);
-    //cout << "Do you want to do more additions?(Y/N) "
-    //cin >> cont;
-    //}
+    cout << endl << "Do you want to do more additions?(Y/N) ";
+    cin >> cont;
+    }
     
 }
 
