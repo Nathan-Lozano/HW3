@@ -1,10 +1,19 @@
+//************************************************************************************************************************************************************
+//team #9           CSCI/CMPE1370             SPRING 2020        HOMEWORK #3
+//SEBASTIAN THOMAS 
+//NATHAN LOZANO 
+//this program was created to be able to perform different  elementary functions such as a calculator would do with fractions such as addition and subtraction.
+//the use of euclids theorem was thoroughly used, not to its full capacity but taking ist main objective and applying it in our code
+//************************************************************************************************************************************************************
+
 #include <iostream>
 #include <sstream>
 #include <unistd.h>
 using namespace std;
 char cont = 'y', choice;
-
+//the code packages inputted above is what allows us to use certain funcytions in our code below
 void showMenu(){
+    //the following fuctions wil display the menu for our program 
     cout << "Ration numbers calculator" << endl;
     cout << "(A)ddition" << endl << "(S)ubtraction" << endl << "(Q)uit" << endl;
     cout << "Enter your option: ";
@@ -68,6 +77,7 @@ void subtractRational(int num1, int den1, int num2, int den2, int *inum, int *id
     *iden = den1 * den2;
     DisplayRational(inum, iden);
 }
+//the follwing add function will allow for the addition of the fractions being inputted by the user 
 void add(){
     choice = 'a';
     while(cont == 'Y' || cont == 'y'){
@@ -82,7 +92,7 @@ void add(){
     cin >> cont;
     }
 }
-
+//the following fuction will allow for the subtraction of fractions as selected by the user 
 void subtract(){
     choice = 's';
     while(cont == 'Y' || cont == 'y'){
