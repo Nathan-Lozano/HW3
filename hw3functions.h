@@ -16,7 +16,10 @@ void DisplayRational(int *inum, int *iden){
     else if(*inum == *iden && choice == 's')
         cout << "0";
     else
-        cout << *inum << "/" << *iden;
+        if(*inum == 0)
+            cout << "0";
+        else
+            cout << *inum << "/" << *iden;
 }
 
 void getRational(int *num, int *den){
