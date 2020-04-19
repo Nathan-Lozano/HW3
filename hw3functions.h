@@ -90,5 +90,6 @@ void subtract(){
             break;
 }
 
-
+//this program is meant for fractions to be inputted and execute certain functions with them such as addittion and subtraction
+//as seen in the code alot of the fuctions learned in class were applied to the best of our ability
 
