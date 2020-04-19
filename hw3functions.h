@@ -26,11 +26,11 @@ void getRational(int *num, int *den){
     cin >> str;
     stringstream stream1(str);
     getline(stream1, numstring, '/');
-    getline(stream1, denstring, '/');
-    *num = stoi(numstring);
+    getline(stream1, denstring, '/'); //breaks single string into substrings
+    *num = stoi(numstring); //converts to integer values
     *den = stoi(denstring);
-    if(*den == 0)
-        system("EXIT");
+    if(*den == 0) 
+        system("EXIT"); //quits if den == 0
 }
 
 void reduce(int *num, int *den){
@@ -40,7 +40,9 @@ void reduce(int *num, int *den){
         a = b;
         b = x;
         x = a % b;
-        //cout << x;
+        //x becomes remainder of a / b
+        //x continues to reduce until reaches 0
+        //once 0 is reached, the gcf will be stored in the b value
     }
     //divides gcf of num value and den values
     *num /= b;
@@ -48,12 +50,12 @@ void reduce(int *num, int *den){
 }
 
 void DisplayRational(int *inum, int *iden){
-    reduce(inum, iden);
-    if(*iden < 0)
+    reduce(inum, iden); //to reduce a SECOND time, ensures lowest possible values, e.g: 3/5 instead of 15/25 
+    if(*iden < 0) //when subtracting numbers, to get - sign to be at the beginning rather than on den
         *inum *= -1, *iden *= -1;
-    if(*inum == *iden && choice == 'a')
+    if(*inum == *iden && choice == 'a') //to display 1 when add/sub equals 1
         cout << "1";
-    else if(*inum == *iden && choice == 's')
+    else if(*inum == *iden && choice == 's') //to display zero when num == 0
         cout << "0";
     else
         if(*inum == 0)
@@ -63,25 +65,26 @@ void DisplayRational(int *inum, int *iden){
 }
 
 void addRational(int num1, int den1, int num2, int den2, int *inum, int *iden){
-    reduce(&num1, &den1); //reduces num and den for first fraction
-    reduce(&num2, &den2); //reduces num and den for second fraction
-    *inum = (num1 * den2) + (num2 * den1); 
-    *iden = den1 * den2;
+    reduce(&num1, &den1); //reduces first fraction first time
+    reduce(&num2, &den2); //reduces second fraction first time
+    *inum = (num1 * den2) + (num2 * den1); //  (a * d) + (c * b)
+    *iden = den1 * den2; //b * d
     DisplayRational(inum, iden); //function to display the result
 }
 
 void subtractRational(int num1, int den1, int num2, int den2, int *inum, int *iden){
     reduce(&num1, &den1);
     reduce(&num2, &den2);
-    *inum = (num1 * den2) - (num2 * den1);
-    *iden = den1 * den2;
-    DisplayRational(inum, iden);
+    //reduces fractions first time
+    *inum = (num1 * den2) - (num2 * den1); //  (a * d) - (c * b)
+    *iden = den1 * den2; // b * d
+    DisplayRational(inum, iden); //display result
 }
 //the follwing add function will allow for the addition of the fractions being inputted by the user 
 void add(){
     choice = 'a';
     while(cont == 'Y' || cont == 'y'){
-    int num1, num2, den1, den2, inum, iden;
+    int num1, num2, den1, den2, inum, iden; //declares the variables that will be used
     system("CLS");
     cout << "Addition of rational numbers" << endl;
     getRational(&num1, &den1);
@@ -89,14 +92,14 @@ void add(){
     //gets num and den in int values
     addRational(num1, den1, num2, den2, &inum, &iden);//adds values
     cout << endl << "Do you want to do more additions?(Y/N) ";
-    cin >> cont;
+    cin >> cont; // continues or stops program
     }
 }
 //the following fuction will allow for the subtraction of fractions as selected by the user 
 void subtract(){
     choice = 's';
     while(cont == 'Y' || cont == 'y'){
-    int num1, num2, den1, den2, inum, iden;
+    int num1, num2, den1, den2, inum, iden; //declares variables that will be used
     system("CLS");
     cout << "Subtraction of rational numbers" << endl;
     getRational(&num1, &den1);
