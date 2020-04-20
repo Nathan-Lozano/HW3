@@ -53,11 +53,9 @@ void DisplayRational(int *inum, int *iden){
     reduce(inum, iden); //to reduce a SECOND time, ensures lowest possible values, e.g: 3/5 instead of 15/25 
     if(*iden < 0) //when subtracting numbers, to get - sign to be at the beginning rather than on den
         *inum *= -1, *iden *= -1;
-    if(*inum == *iden && choice == 'a') //to display 1 when add/sub equals 1
+    if(*inum == *iden) //to display 1 when add/sub equals 1
         cout << "1";
-    else if(*inum == *iden && choice == 's') //to display zero when num == 0
-        cout << "0";
-    else
+    else //to display zero when num == 0
         if(*inum == 0)
             cout << "0";
         else
